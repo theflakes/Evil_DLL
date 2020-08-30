@@ -1,0 +1,21 @@
+[package]
+name = "evil_dll"
+version = "0.1.0"
+authors = ["theflakes"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+winapi = { version = "0.3.9", features = ["consoleapi", "minwindef"] }
+
+[profile.release]
+lto = true
+panic = 'abort'
+opt-level = "z"
+debug = false
+rpath = false
+debug-assertions = false
+codegen-units = 1
