@@ -6,10 +6,12 @@ Will write a file to the directory "c:\pwned" named pwned_{pid}.txt.
 
 File content example:
 ```
-[*]      Process: "C:\\Windows\\system32\\regsvr32.exe"  
-[*]         User: "username"  
-[*]       Domain: "domain"  
-[*] Created file: "c:\\pwned\\pwned_6984.txt"
+[*]          Pid: "7204"
+[*]      Process: "C:\\Windows\\system32\\regsvr32.exe"
+[*]         Args: [".\\evil_dll.dll"]
+[*]         User: "user"
+[*]       Domain: "DOMAIN"
+[*] Created file: "c:\\pwned\\pwned_7204.txt"
 ```
 
 # Disclaimer
