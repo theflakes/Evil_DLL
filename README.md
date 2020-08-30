@@ -11,3 +11,6 @@ File content example:
 [*]       Domain: "domain"  
 [*] Created file: "c:\\pwned\\pwned_6984.txt"
 ```
+
+# Disclaimer
+This tool comes with no warranty or support. If anyone chooses to use it, you accept all responsability and liability.
