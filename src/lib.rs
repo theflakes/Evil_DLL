@@ -42,9 +42,12 @@ fn do_evil() {
     let domain = env::var("USERDOMAIN").unwrap().as_str().to_owned();
     let path = format!("{}\\pwned_{}.txt", pwned_path, pid);
     let process_path = std::env::current_exe().unwrap();
+    let args: Vec<String> = std::env::args().collect();
 
-    let ss = format!("[*]      Process: {:?}\n[*]         User: {:?}\n[*]       Domain: {:?}\n[*] Created file: {:?}\n", 
+    let ss = format!("[*]          Pid: {:?}\n[*]      Process: {:?}\n[*]         Args: {:?}\n[*]         User: {:?}\n[*]       Domain: {:?}\n[*] Created file: {:?}\n", 
+            pid,
             process_path, 
+            &args[1..],
             username, 
             domain,
             path);
