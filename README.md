@@ -17,7 +17,7 @@ File content example:
 To compile all dependencies into the DLL create a ".cargo/config" directory and file at the root of your Rust project with the following content.
 ```
 target.x86_64-pc-windows-msvc]
-rustflags = ["-Ctarget-feature=+crt-static", "-Zunstable-options"]
+rustflags = ["-Ctarget-feature=+crt-static"]
 ```
 
 # Disclaimer
