@@ -14,9 +14,9 @@ File content example:
 [*] Created file: "c:\\pwned\\pwned_7204.txt"
 ```
 
-To compile all dependencies into the DLL create a ".cargo/config" directory and file at the root of your Rust project with the following content.
+To compile all dependencies into the DLL create a ".cargo\config.toml" directory and file at the root of your Rust project with the following content.
 ```
-target.x86_64-pc-windows-msvc]
+[target.x86_64-pc-windows-msvc]
 rustflags = ["-Ctarget-feature=+crt-static"]
 ```
 
