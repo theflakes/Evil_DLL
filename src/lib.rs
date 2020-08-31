@@ -38,13 +38,19 @@ fn do_evil() {
     let pwned_path = "c:\\pwned";
     fs::create_dir_all(pwned_path).unwrap();
     let pid = std::process::id().to_string();
-    let username = env::var("USERNAME").unwrap().as_str().to_owned();
-    let domain = env::var("USERDOMAIN").unwrap().as_str().to_owned();
+    let username = env::var("USERNAME").unwrap();
+    let domain = env::var("USERDOMAIN").unwrap();
     let path = format!("{}\\pwned_{}.txt", pwned_path, pid);
     let process_path = std::env::current_exe().unwrap();
     let args: Vec<String> = std::env::args().collect();
 
-    let ss = format!("[*]          Pid: {:?}\n[*]      Process: {:?}\n[*]         Args: {:?}\n[*]         User: {:?}\n[*]       Domain: {:?}\n[*] Created file: {:?}\n", 
+    let ss = format!(r"[*]          Pid: {:?}
+[*]      Process: {:?}
+[*]         Args: {:?}
+[*]         User: {:?}
+[*]       Domain: {:?}
+[*] Created file: {:?}
+", 
             pid,
             process_path, 
             &args[1..],
