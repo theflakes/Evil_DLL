@@ -44,7 +44,7 @@ fn do_evil() {
     let process_path = std::env::current_exe().unwrap();
     let args: Vec<String> = std::env::args().collect();
 
-    let ss = format!(r"[*]          Pid: {:?}
+    let output = format!(r"[*]          Pid: {:?}
 [*]      Process: {:?}
 [*]         Args: {:?}
 [*]         User: {:?}
@@ -57,8 +57,8 @@ fn do_evil() {
             username, 
             domain,
             path);
-    println!("{}", ss);
+    println!("{}", output);
     
     let mut file = File::create(path).unwrap();
-    file.write_all(ss.as_bytes()).unwrap();
+    file.write_all(output.as_bytes()).unwrap();
 }
